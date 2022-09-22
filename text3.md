@@ -12,10 +12,39 @@ Visual Studio Code（VSCode）は、2015年にリリースされたMicrosoftが�
 
 * https://code.visualstudio.com/download
 
+## Pythonの準備
+
 VSCode内のプライマリサイドバーの拡張機能から`Python`と検索し、Pythonの開発に必要な拡張機能をインストールします。その他Pylanceなどの機能も一緒にインストールされる。
 
 ![外観図](./image/img11.png)
 
+インタプリタをPython3.?.? 64-bit ~/anaconda3/python/exeを選択する。この際、Anaconda環境以外のPython開発環境をPCにインストールされている場合は、別のPythonインタプリタが競合する場合があります。慣れていない方は、PCのアプリケーションのアンインストールから削除することをおすすめします。
+
+![外観図](./image/img12.png)
+
+## ライブラリのインストール作業
+
+Raspberry Pi Picoとシリアル通信にてデータを受信するには、`Pyserial`ライブラリをインストールする必要があるので、インストールする。
+
+Windowsスタートメニュー＜Anaconda3(64-bit)＜Anaconda Powershell Promptでshellを開く
+
+![外観図](./image/img13.png)
+
+shellが画面にて以下のコマンドを打つ。
+
+- pipを最新版にアップデート
+
+```shell
+(base) PS C:\Users\user> pip install --upgrade pip
+```
+`Successfully uninstalled pip-21.2.4`とでれば成功
+ 
+- Pyserialをインストール
+
+```shell
+(base) PS C:\Users\user> pip install pyserial 
+```
+`Successfully installed pyserial-3.5`とでれば成功
 
 ## Rasberry Pi Picoからシリアル通信にて送信する
 
@@ -74,3 +103,47 @@ while True:
     led.value(0) #led消灯
 ```
 
+## Pythonにてデータを受信する
+
+pythonにて、Picoから送られたデータ（温度、湿度、気圧）を受信します。
+
+```python
+# coding: utf-8
+
+from time import sleep
+import datetime
+import csv
+import serial
+
+#シリアルポートを設定
+ser = serial.Serial('COM番号', 921600)
+
+try:
+    while True:
+        #シリアル通信からデータを取得
+        data = ser.readline()
+        sleep(1)
+
+        #改行コードで分割
+        data = data.split(b'\r\n')
+        #バイナリデータを文字列に変換
+        data = data[0].decode()
+        #カンマで分割し、list型dataに格納
+        data = data.split(',')
+        print(data)
+        
+        #datetimeライブラリから現在の時刻を取得
+        dt_now = datetime.datetime.now()
+        #ファイル名(test.csv)を作成し、カンマ区切りで(現在時刻,温度,湿度,気圧)書き込む
+        with open('test.csv', 'a') as f:
+            f.write(dt_now.strftime('%Y/%m/%d %H:%M:%S') + "," + data[0]  + "," + data[1]  + "," + data[2] + "\n")
+    
+except KeyboardInterrupt:#キーを押して終了した時は何もしないでプログラムを終了する
+    pass
+```
+
+`COM番号`には自身のPicoが接続されたCOM番号を入れる。
+
+```python
+ser = serial.Serial('COM番号', 921600)
+```
