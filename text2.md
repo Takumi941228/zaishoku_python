@@ -1,6 +1,6 @@
 # プログラミング技術（Python入門）
 
-## Raspberry　Pi Picoについて
+## Raspberry Pi Picoについて
 
 Raspberry Pi財団が独自に開発したARM Cortex M0+デュアルコアのRP2040マイコンを搭載した開発基板です。C/C++およびMicroPythonで開発が可能です。既存のRaspberry Piとは異なりLinux OSは搭載できません。
 
@@ -61,6 +61,14 @@ Rapberry Pi Pico用のUF2ファイルをダウンロードする。（Pico WはW
 
 Raspberry Pi向けのPython開発環境Thonnyは、初心者向けの統合開発環境であり、最新のRaspberry Pi OSに標準でインストールされています。
 
+### MicroPythonとは
+
+マイクロコンピュータや組み込み機器で使われるプログラミング言語はC/C++が一般的ですが、初心者にとっては学習障壁が比較的高い言語でもあります。`「MicroPython」`はPython3と高い互換性があるプログラミング言語であるため、プログラミング初心者でも理解しやすいPythonの文法を使ってプログラミングすることができます。
+
+* MicroPython - Python for microcontrollers
+    * <http://micropython.org/>
+
+
 ### インタプリタの選択
 
 ツール＜オプション からインタプリタの設定画面を開く。
@@ -72,6 +80,10 @@ Raspberry Pi向けのPython開発環境Thonnyは、初心者向けの統合開�
 - OK
 
 ![外観図](./image/img7.png)
+
+## サンプルプログラム
+
+いつくかのサンプルプログラムを実行し、Picoと各種センサについて学習します。
 
 ### LEDの制御
 
@@ -111,6 +123,12 @@ OLED及びAE-BME280をMicroPythonで開発する際に便利なライブラリ�
 
 ![外観図](./image/img8.png)
 
+
+
+### OLEDの表示
+
+有機ELディスプレイ（OLED）をPicoにI2C接続を行い、文字を表示します。
+
 ```python
 # -*- coding: utf-8-*-
 #pico用ライブラリをインポート
@@ -130,7 +148,9 @@ oled.text("Hello Python",0,20) #x=0, y=20座標に文字を出力
 
 oled.show()		#oledにデータを表示
 ```
+### BME280センサデータの取得
 
+BME280センサをPicoにI2C接続を行いデータを取得する
 
 ```python
 # -*- coding: utf-8-*-
@@ -170,5 +190,6 @@ while True:
     print(data)  #シリアル通信にてデータ送信
     sleep(1)	 #1min待機
 ```
+正しく接続ができていれば、以下のようなセンサデータがshell画面に1秒間隔で表示されます。
 
 ![外観図](./image/img9.png)
