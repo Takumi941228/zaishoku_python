@@ -12,6 +12,11 @@ Visual Studio Code（VSCode）は、2015年にリリースされたMicrosoftが�
 
 * https://code.visualstudio.com/download
 
+VSCode内のプライマリサイドバーの拡張機能から`Python`と検索し、Pythonの開発に必要な拡張機能をインストールします。その他Pylanceなどの機能も一緒にインストールされる。
+
+![外観図](./image/img11.png)
+
+
 ## Rasberry Pi Picoからシリアル通信にて送信する
 
 以下のプログラムを実行した後、Thonnyを終了してください。※shellにデータを表示する際に、シリアル通信を行っているため、PCへのシリアル通信と競合してしまうのを防ぐためです。
