@@ -2,9 +2,13 @@ import pandas as pd
 # グラフ描画ライブラリ matplotlibのpyplotを plt という名前でimport
 import matplotlib.pyplot as plt
 
+#データフレームdfにcsvファイルからのデータにカラムの名前を付けて格納する
 df = pd.read_csv('test.csv', names=("TimeStamp", "Temperature", "Pressure", "Humidity"),encoding='utf8')
 
+#2x2=4つのグラフを作成する
 fig, axes = plt.subplots(2,2,tight_layout=True)
+
+
 df.plot(ax=axes[0,0], x='TimeStamp', y=["Temperature"], color="red")
 df.plot(ax=axes[0,1], x='TimeStamp', y=["Pressure"], color="blue")
 df.plot(ax=axes[1,0], x='TimeStamp', y=["Humidity"], color="green")
@@ -24,4 +28,5 @@ axes[0,0].set_ylim(0,40)
 axes[0,1].set_ylim(800, 1100)
 axes[1,0].set_ylim(0, 100)
 
+#グラフの表示
 plt.show()
