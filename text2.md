@@ -94,7 +94,7 @@ OLED及びAE-BME280をMicroPythonで開発する際に便利なライブラリ�
 
 ![外観図](./image/img8.png)
 
-```pyhon
+```python
 # -*- coding: utf-8-*-
 #pico用ライブラリをインポート
 from machine import Pin, I2C
