@@ -44,6 +44,19 @@ Rapberry Pi Pico用のUF2ファイルをダウンロードする。（Pico WはW
 
 * MicroPython UF2ファイルをRPI-RP2ボリュームにドラッグ＆ドロップします。Picoが再起動します。
 
+### 配線
+
+
+| Pico | pin| SSD1306 | BME280 |
+| --- | --- | --- | --- |
+| 3V3(OUT) | 36 | VCC | VDD |
+| GND | 23 | GND | GND |
+| SCL | 22 | SCL | SCK |
+| SDA | 21 | SDA | SDI |
+| 3V3(OUT) | 36 | --- | CSB |
+| GND | 23 | --- | SDO |
+
+
 ## MicroPython用開発環境Thonnyについて
 
 Raspberry Pi向けのPython開発環境Thonnyは、初心者向けの統合開発環境であり、最新のRaspberry Pi OSに標準でインストールされています。
@@ -62,7 +75,11 @@ Raspberry Pi向けのPython開発環境Thonnyは、初心者向けの統合開�
 
 ### LEDの制御
 
+Raspberry Pi Picoに内臓されているLED（GPIO25pinに接続）を使用して、Lチカを行います。
+
+* ファイル名（pico_micropython1.py）
 ```python
+# pico_micropython1.py
 # -*- coding: utf-8-*-
 #pico用ライブラリをインポート
 from machine import Pin
@@ -153,3 +170,5 @@ while True:
     print(data)  #シリアル通信にてデータ送信
     sleep(1)	 #1min待機
 ```
+
+![外観図](./image/img9.png)
