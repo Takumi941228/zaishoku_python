@@ -21,10 +21,12 @@ bme280センサの計測を行う関数
 def sensor():
     temp, press, humi = bme.read_compensated_data()
     #温度,湿度,気圧のデータを計算
-    temp = temp / 100
-    press = (press // 256) / 100
-    humi = humi / 1024
-    data = str(temp) + ',' + str(press) + ',' + str(humi)
+    temp = float(temp / 100)
+    press = float((press // 256) / 100)
+    humi = float(humi / 1024)
+    ｓ#文字型に変換してlist型dataに格納
+    #humiを小数点以下第二位で四捨五入
+    data = str(temp) + ',' + str(press) + ',' + str(round(humi, 2))
     #計測したデータを戻り値として返す
     return data, temp, press, humi
 
@@ -44,5 +46,6 @@ while True:
     
     led.value(1) #led点灯
     print(data)  #シリアル通信にてデータ送信
-    sleep(60)	 #1min待機
+    sleep(1)	 #1min待機
     led.value(0) #led消灯
+
