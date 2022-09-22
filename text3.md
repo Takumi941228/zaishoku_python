@@ -34,15 +34,17 @@ shellが画面にて以下のコマンドを打つ。
 
 - pipを最新版にアップデート
 
+`(base) PS C:\Users\user>`のあとに
 ```shell
-(base) PS C:\Users\user> pip install --upgrade pip
+ pip install --upgrade pip
 ```
 `Successfully uninstalled pip-21.2.4`とでれば成功
  
 - Pyserialをインストール
 
+`(base) PS C:\Users\user>`のあとに
 ```shell
-(base) PS C:\Users\user> pip install pyserial 
+pip install pyserial 
 ```
 `Successfully installed pyserial-3.5`とでれば成功
 
@@ -153,4 +155,43 @@ except KeyboardInterrupt:#キーを押して終了した時は何もしないで
 
 ```python
 ser = serial.Serial('COM番号', 921600)
+```
+
+## Pythonにてcsvデータをグラフ化する
+
+上記のプログラムで出力された`test.csc`ファイルを`Pandas`と`Matplotlib`ライブラリを用いて、グラフによる可視化を行います。
+
+```python
+import pandas as pd
+# グラフ描画ライブラリ matplotlibのpyplotを plt という名前でimport
+import matplotlib.pyplot as plt
+
+#データフレームdfにcsvファイルからのデータにカラムの名前を付けて格納する
+df = pd.read_csv('test.csv', names=("TimeStamp", "Temperature", "Pressure", "Humidity"),encoding='utf8')
+
+#2x2=4つのグラフを作成する
+fig, axes = plt.subplots(2,2,tight_layout=True)
+
+
+df.plot(ax=axes[0,0], x='TimeStamp', y=["Temperature"], color="red")
+df.plot(ax=axes[0,1], x='TimeStamp', y=["Pressure"], color="blue")
+df.plot(ax=axes[1,0], x='TimeStamp', y=["Humidity"], color="green")
+
+#サブプロットにタイトル追加
+axes[0,0].set_title("Temperature")
+axes[0,1].set_title("Pressure")
+axes[1,0].set_title("Humidity")
+
+#サブプロットに軸ラベル追加
+axes[0,0].set_ylabel("Temp[℃]")
+axes[0,1].set_ylabel("Press[hPa]")
+axes[1,0].set_ylabel("Humi[%]")
+
+#サブプロットに軸範囲を追加
+axes[0,0].set_ylim(0,40)
+axes[0,1].set_ylim(800, 1100)
+axes[1,0].set_ylim(0, 100)
+
+#グラフの表示
+plt.show()
 ```
