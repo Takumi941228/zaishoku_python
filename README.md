@@ -2,15 +2,25 @@
 
 こちらのテキストは、県央産業技術専門セミナー「プログラミング技術（Python入門）」で使用するテキストです。
 
-## 研修内容
+## 研修項目
 
 * Pythonの概要
 * Pythonの学習（Jupyter NoteBook）
 * Raspberry Pi Picoを使ったセンサデータ収集（Thonny）
 * Pythonを使ったグラフによる可視化（Vitual Studio Code）
 
-## 実施内容
+## 研修内容
 
+### Pythonの概要
+Pythonについて、概要など知識の学習を行います。
+
+### Pythonの学習
+初心者向けのPython開発環境Jupyter NoteBookを使って、Pythonの基本的な書き方から少し応用的な内容まで、学習します。
+
+### Raspberry Pi Picoを使ったセンサデータ取得
+Raspberry Pi Picoを使って、Python3と互換性がある言語MicroPythonで、マイコンからのセンサデータ取得を行います。
+
+### Pythonを使ったグラフによる可視化
 Rapberry Pi Picoに接続された温湿度・気圧センサ(AE-BME280)で計測したデータをシリアル通信にて送信し、PCで受信したデータをPythonを用いてcsvデータとして保存し、以下のようなグラフにする。
 
 ![外観図](./image/Figure_1.png)
