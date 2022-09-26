@@ -12,7 +12,7 @@ fig, axes = plt.subplots(2,2,tight_layout=True)
 df.plot(ax=axes[0,0], x='TimeStamp', y=["Temperature"], color="red")
 df.plot(ax=axes[0,1], x='TimeStamp', y=["Pressure"], color="blue")
 df.plot(ax=axes[1,0], x='TimeStamp', y=["Humidity"], color="green")
-#df.plot(ax=axes[1,1], x='TimeStamp', y=["Humidity"], ["Temperature"], color="green", "red")
+df.plot(ax=axes[1,1], x='TimeStamp', y=["Humidity", "Temperature"])
 
 #サブプロットにタイトル追加
 axes[0,0].set_title("Temperature")
