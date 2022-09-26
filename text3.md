@@ -12,25 +12,30 @@ Visual Studio Code（VSCode）は、2015年にリリースされたMicrosoftが�
 
 * https://code.visualstudio.com/download
 
-## Pythonの準備
+## 拡張機能のインストール
 
-VSCode内のプライマリサイドバーの拡張機能から`Python`と検索し、Pythonの開発に必要な拡張機能をインストールします。その他Pylanceなどの機能も一緒にインストールされる。
+VSCode内のプライマリサイドバーの拡張機能から`japanes`と`Python`と検索し、VSCodeの日本語化とPythonの開発に必要な拡張機能をインストールします。その他Pylanceなどの機能も一緒にインストールされる。
 
+![外観図](./image/img15.png)
 ![外観図](./image/img11.png)
 
-インタプリタをPython3.?.? 64-bit ~/anaconda3/python/exeを選択する。この際、Anaconda環境以外のPython開発環境をPCにインストールされている場合は、別のPythonインタプリタが競合する場合があります。慣れていない方は、PCのアプリケーションのアンインストールから削除することをおすすめします。
+インタプリタを右下の設定からPython 3.x.x 64-bit　`C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe`を選択する。※先にPythonファイルを開いて下さい。
+
+![外観図](./image/img16.png)
+
+この際、Anaconda環境またそれ以外のPython開発環境をPCにインストールされている場合は、別のPythonインタプリタが競合する場合があります。慣れていない方は、先にPCのアプリケーションのインストールから削除することをおすすめします。
 
 ![外観図](./image/img12.png)
 
 ## ライブラリのインストール作業
 
-Raspberry Pi Picoとシリアル通信にてデータを受信するには、`Pyserial`ライブラリをインストールする必要があるので、インストールする。
+公式版のPythonには、今回使用する外部ライブラリである`Paddas`、`Matplotlib`及びRaspberry Pi Picoとシリアル通信にてデータを受信するには、`Pyserial`ライブラリをインストールする必要があるので、インストールする。
 
-Windowsスタートメニュー＜Anaconda3(64-bit)＜Anaconda Powershell Promptでshellを開く
+VSCode上部のターミナルから新しいターミナルを開き、以下のコマンドを実行してください。
 
 ![外観図](./image/img13.png)
 
-shellが画面にて以下のコマンドを打つ。
+Windows PowerShellが画面にて以下のコマンドを打つ。
 
 - pipを最新版にアップデート
 
@@ -39,7 +44,19 @@ shellが画面にて以下のコマンドを打つ。
  pip install --upgrade pip
 ```
 `Successfully uninstalled pip-21.2.4`とでれば成功
+
+- Padansをインストール
+```shell
+ pip install pandas
+```
+`Successfully installed pandas-x.x`とでれば成功
  
+- Matplotlibをインストール
+```shell
+ pip install matplotlib
+```
+`Successfully installed matplotlib-x.x`とでれば成功
+
 - Pyserialをインストール
 
 `(base) PS C:\Users\user>`のあとに
