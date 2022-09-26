@@ -6,7 +6,7 @@
 
 * Pythonの概要
 * Pythonの学習（Jupyter NoteBook）
-* Raspberry Pi Picoを使ったセンサデータ収集（Thonny）
+* Raspberry Pi Picoを使ったPythonの学習（Thonny）
 * Pythonを使ったグラフによる可視化（Vitual Studio Code）
 
 ## 研修内容
@@ -17,11 +17,11 @@ Pythonについて、概要など知識の学習を行います。
 ### Pythonの学習
 初心者向けのPython開発環境Jupyter NoteBookを使って、Pythonの基本的な書き方から少し応用的な内容まで、学習します。
 
-### Raspberry Pi Picoを使ったセンサデータ取得
-Raspberry Pi Picoを使って、Python3と互換性がある言語MicroPythonで、マイコンからのセンサデータ取得を行います。
+### Raspberry Pi Picoを使ったPythonの学習
+Raspberry Pi Picoを使って、Python3と互換性がある言語MicroPythonで、マイコンからのセンサデータ取得を行い、組み込み向けのPythonを使い方を学習します。
 
-### Pythonを使ったグラフによる可視化
-Rapberry Pi Picoに接続された温湿度・気圧センサ(AE-BME280)で計測したデータをシリアル通信にて送信し、PCで受信したデータをPythonを用いてcsvデータとして保存し、以下のようなグラフにする。
+### Pythonでグラフによる可視化
+Rapberry Pi Picoに接続された温湿度・気圧センサ(AE-BME280)で計測したデータをシリアル通信にて送信し、PCで受信したデータをPythonを用いてcsvデータとして保存し、以下のようなグラフを作成し、可視化を行います。
 
 ![外観図](./image/Figure_1.png)
 
@@ -29,11 +29,11 @@ Rapberry Pi Picoに接続された温湿度・気圧センサ(AE-BME280)で計�
 
 ## 基本セット
 
-本セミナーにて使用するものは以下とする。
+本セミナーにて使用するものは以下とする。ハードウェアとソフトウェアに分けて記述する。
 
 ## 利用ハードウェア
 
-使用すハードウェアの紹介をします。
+使用するハードウェアの紹介をします。
 
 * マイコンボード（Raspberry Pi Pico）
 
@@ -57,6 +57,8 @@ Rapberry Pi Picoに接続された温湿度・気圧センサ(AE-BME280)で計�
 
 ## 利用ソフトウェア
 
+使用するソフトウェアの紹介をします。
+
 * Jupyter NoteBook（Anaconda3）
 
     * <https://www.anaconda.com/products/distribution>
@@ -70,6 +72,8 @@ Rapberry Pi Picoに接続された温湿度・気圧センサ(AE-BME280)で計�
     * <https://thonny.org/>
 
 ## 開発言語
+
+今回する言語はPythonになります。Pythonは3系をインストールしてください。
 
 * Python3系
 

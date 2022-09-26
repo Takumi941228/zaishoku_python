@@ -10,7 +10,7 @@ Jupyter Notebookはオープンソースであり、無償利用が可能です�
 
 ## 環境構築の準備
 
-jupyter NoteBookを利用するには、以下の２つがあります。今回は、Anacondaを使ったインストールを行います。
+Jupyter NoteBookを利用するには、以下の２つがあります。今回は、Anacondaを使ったインストールを行います。
 
 * pipコマンドを使ったインストール
 * Anacondaを使ったインストール
@@ -29,8 +29,10 @@ WindowsのスタートメニューからAnaconda3の中のJupyter NoteBookをク
 
 ![外観図](./image/img3.png)
 
-開きたいファイルをクリック（.ipynb）する。
+ご自身のPC内のディレクトリから開きたいファイル（拡張子は：`.ipynb`）をクリックする。
 
 ![外観図](./image/img4.png)
+
+クリックと同時にファイルがRunning状態となり、プログラムが実行できるようになります。
 
 ![外観図](./image/img5.png)
