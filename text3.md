@@ -6,6 +6,12 @@ Visual Studio Code（VSCode）は、2015年にリリースされたMicrosoftが�
 
 ![外観図](./image/img10.png)
 
+## Pythonのインストール
+
+以下のアドレスからPythonをダウンロードし、インストールします。
+
+*  <https://www.python.org/>
+
 ## 環境構築の準備
 
 以下のアドレスからVSCodeをダウンロードし、インストールします。
