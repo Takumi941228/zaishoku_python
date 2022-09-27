@@ -43,9 +43,10 @@ VSCode上部のターミナルから新しいターミナルを開き、以下�
 
 Windows PowerShellが画面にて以下のコマンドを打つ。
 
+`PS C:\Users\user\Documents\zaishoku_python>`のあとに以下のコマンドを打ちます。
+
 - pipを最新版にアップデート
 
-`(base) PS C:\Users\user>`のあとに
 ```shell
  pip install --upgrade pip
 ```
@@ -65,7 +66,6 @@ Windows PowerShellが画面にて以下のコマンドを打つ。
 
 - Pyserialをインストール
 
-`(base) PS C:\Users\user>`のあとに
 ```shell
 pip install pyserial 
 ```
@@ -139,9 +139,11 @@ pythonにて、Picoから送られたデータ（温度、湿度、気圧）を�
         
         - 2022/09/21 11:27:03,25.37,1000.86,68.95703
 
+* ファイル名（pico_python1.py）
+
 ```python
 # coding: utf-8
-
+# pico_python1.py
 from time import sleep
 import datetime
 import csv
@@ -184,7 +186,10 @@ ser = serial.Serial('COM番号', 921600)
 
 上記のプログラムで出力された`test.csc`ファイルを`Pandas`と`Matplotlib`ライブラリを用いて、グラフによる可視化を行います。
 
+* ファイル名（pico_python2.py）
+
 ```python
+# pico_python2.py
 import pandas as pd
 # グラフ描画ライブラリ matplotlibのpyplotを plt という名前でimport
 import matplotlib.pyplot as plt

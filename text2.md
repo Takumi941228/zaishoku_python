@@ -132,8 +132,11 @@ OLED及びAE-BME280をMicroPythonで開発する際に便利なライブラリ�
 
 有機ELディスプレイ（OLED）をPicoにI2C接続を行い、文字を表示します。
 
+* ファイル名（pico_micropython2.py）
+
 ```python
 # -*- coding: utf-8-*-
+# pico_micropython2.py
 #pico用ライブラリをインポート
 from machine import Pin, I2C
 #timeライブラリをインポート
@@ -155,8 +158,11 @@ oled.show()		#oledにデータを表示
 
 BME280センサをPicoにI2C接続を行いデータを取得する
 
+* ファイル名（pico_micropython3.py）
+
 ```python
 # -*- coding: utf-8-*-
+# pico_micropython3.py
 #pico用ライブラリをインポート
 from machine import Pin, I2C
 #timeライブラリをインポート
