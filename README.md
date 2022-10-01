@@ -81,3 +81,5 @@ Rapberry Pi Picoに接続された温湿度・気圧センサ(AE-BME280)で計�
 
 * MicroPython
     * <https://micropython.org/>
+
+Thank you!
