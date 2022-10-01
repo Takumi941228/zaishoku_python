@@ -35,4 +35,4 @@ WindowsのスタートメニューからAnaconda3の中のJupyter NoteBookをク
 
 クリックと同時にファイルがRunning状態となり、プログラムが実行できるようになります。
 
-![外観図](./image/img5.png)
+
