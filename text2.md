@@ -126,7 +126,7 @@ OLED及びAE-BME280をMicroPythonで開発する際に便利なライブラリ�
 - micropython_bme280
     - `https://github.com/stlehmann/micropython-ssd1306`
 
-![外観図](./image/img8.png)
+![外観図](./image/img22.png)
 
 ### OLEDの表示
 
