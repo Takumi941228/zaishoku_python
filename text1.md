@@ -29,12 +29,22 @@ WindowsのスタートメニューからAnaconda3の中のJupyter NoteBookをク
 
 ![外観図](./image/img3.png)
 
-ご自身のPC内のディレクトリから開きたいファイル（拡張子は：`.ipynb`）をクリックする。
+ご自身のPC内のディレクトリから開きたいファイル（拡張子は：`.ipynb`）をクリックする。画像は、今回使用するフォルダのコードを参照しています。
+
+フォルダの階層
+```
+zaishoku_python
+|---jyupter_cone
+|       |---Matplotlib
+|       |---Numpy
+|       |---Pandas
+|       |---Python
+|            |---python_1.ipynb
+|---pico_code
+```
 
 ![外観図](./image/img4.png)
 
 クリックと同時にファイルがRunning状態となり、プログラムが実行できるようになります。
 
 ![外観図](/image/img5.png)
-
-f
