@@ -5,9 +5,9 @@
 ## 研修項目
 
 * Pythonの概要
-* Pythonの学習（Jupyter NoteBook）
-* Raspberry Pi Picoを使ったPythonの学習（Thonny）
-* Pythonを使ったグラフによる可視化（Vitual Studio Code）
+* Pythonの学習
+* Raspberry Pi Picoを使ったMicroPythonの学習
+* Pythonを使ったグラフによる可視化
 
 ## 研修内容
 
@@ -15,10 +15,10 @@
 Pythonについて、概要など知識の学習を行います。
 
 ### Pythonの学習
-初心者向けのPython開発環境Jupyter NoteBookを使って、Pythonの基本的な書き方から少し応用的な内容まで、学習します。
+初心者向けのPython開発環境Jupyter NoteBookを使って、Pythonの基本的な書き方からライブラリを使った応用的な内容まで、学習します。
 
 ### Raspberry Pi Picoを使ったPythonの学習
-Raspberry Pi Picoを使って、Python3と互換性がある言語MicroPythonで、マイコンからのセンサデータ取得を行い、組み込み向けのPythonを使い方を学習します。
+Raspberry Pi Picoを使って、Python3と互換性がある言語MicroPythonで、マイコンを使った液晶ディスプレイ[SSD1306]と温湿度・気圧センサ[AE-BME280]の制御方法、センサデータ取得をシリアル通信にて行うなどの、組み込み向けのPythonを使い方を学習します。
 
 ### Pythonでグラフによる可視化
 Rapberry Pi Picoに接続された温湿度・気圧センサ(AE-BME280)で計測したデータをシリアル通信にて送信し、PCで受信したデータをPythonを用いてcsvデータとして保存し、以下のようなグラフを作成し、可視化を行います。
