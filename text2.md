@@ -84,7 +84,7 @@ Raspberry Pi向けのPython開発環境Thonnyは、初心者向けの統合開�
     - USBシリアルデバイス（自身のCOM番号）
 - OK
 
-![外観図](./image/img23.png))
+![外観図](./image/img23.png)
 
 ## サンプルプログラム
 
