@@ -42,6 +42,8 @@ Rapberry Pi Pico用のUF2ファイルをダウンロードする。（Pico WはW
 
 * RPI-RP2と呼ばれるマスストレージデバイスとしてマウントされます。
 
+![外観図](./image/img21.png)
+
 * MicroPython UF2ファイルをRPI-RP2ボリュームにドラッグ＆ドロップします。Picoが再起動します。
 
 ### 配線

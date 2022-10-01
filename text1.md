@@ -19,13 +19,15 @@ Jupyter NoteBookを利用するには、以下の２つがあります。今回�
 
 * <https://www.anaconda.com/products/distribution>
 
-## Jupyter NoteBookの起動
+## Jupyter NoteBookの使い方 
+
+### Jupyter NoteBookの起動
 
 WindowsのスタートメニューからAnaconda3の中のJupyter NoteBookをクリックし、起動します。
 
 ![外観図](./image/img2.png)
 
-コンソール画面が立ち上がり、起動する。
+ターミナル画面が立ち上がり、起動する。
 
 ![外観図](./image/img3.png)
 
@@ -47,4 +49,33 @@ zaishoku_python
 
 クリックと同時にファイルがRunning状態となり、プログラムが実行できるようになります。
 
-![外観図](/image/img5.png)
+### プログラムの実行
+
+Running状態のコードを[▶Run]をクリックすると、cellごとにプログラムを実行することができます。
+
+![外観図](./image/img5.png)
+
+### 新規ファイルの作成
+
+NeWをクリックし、インタプリタを[Python3(ipykernel)]を選択します。
+
+![外観図](./image/img17.png)
+
+以下のコードを画像のように入力してください。
+
+```python
+print('Hello Python')
+10 + 10
+```
+
+![外観図](./image/img18.png)
+
+入力および実行が終わったら名前を付けて保存しましょう。Untitledをクリックし、任意の名前を入力してください。
+
+![外観図](./image/img19.png)
+
+### Jupyter NoteBookの終了
+
+上記タブのFileから[close and Halt]をクリックして、ターミナル画面上で[ctrl+cキー]を押すと、数秒後に終了します。
+
+![外観図](./image/img20.png)
