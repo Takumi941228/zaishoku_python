@@ -128,8 +128,6 @@ OLED及びAE-BME280をMicroPythonで開発する際に便利なライブラリ�
 
 ![外観図](./image/img8.png)
 
-
-
 ### OLEDの表示
 
 有機ELディスプレイ（OLED）をPicoにI2C接続を行い、文字を表示します。
