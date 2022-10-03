@@ -25,23 +25,23 @@ VSCode内のプライマリサイドバーの拡張機能から`japanes`と`Pyth
 ![外観図](./image/img15.png)
 ![外観図](./image/img11.png)
 
-インタプリタを右下の設定からPython 3.x.x 64-bit　`C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe`を選択する。※先にPythonファイルを開いて下さい。
+インタプリタを右下の設定からPython 3.x.x 64-bit　`C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe`を選択します。※先にPythonファイルを開いてください。
 
 ![外観図](./image/img16.png)
 
-この際、Anaconda環境またそれ以外のPython開発環境をPCにインストールされている場合は、別のPythonインタプリタが競合する場合があります。慣れていない方は、先にPCのアプリケーションのインストールから削除することをおすすめします。
+この際、Anaconda環境またそれ以外のPython開発環境がPCにインストールされている場合は、別のPythonインタプリタが競合する場合があります。慣れていない方は、先にPCのアプリケーションのインストールから削除することをおすすめします。
 
 ![外観図](./image/img12.png)
 
 ## ライブラリのインストール作業
 
-公式版のPythonには、今回使用する外部ライブラリである`Paddas`、`Matplotlib`及びRaspberry Pi Picoとシリアル通信にてデータを受信するには、`Pyserial`ライブラリをインストールする必要があるので、インストールする。
+公式版のPythonには、今回使用する外部ライブラリである`Paddas`、`Matplotlib`及びRaspberry Pi Picoとシリアル通信でデータを受信するには、`Pyserial`ライブラリをインストールする必要があります。
 
 VSCode上部のターミナルから新しいターミナルを開き、以下のコマンドを実行してください。
 
 ![外観図](./image/img13.png)
 
-Windows PowerShellが画面にて以下のコマンドを打つ。
+Windows PowerShellが画面にて以下のコマンドを打ちます。
 
 `PS C:\Users\user\Documents\zaishoku_python>`のあとに以下のコマンドを打ちます。
 
@@ -71,9 +71,9 @@ pip install pyserial
 ```
 `Successfully installed pyserial-3.5`とでれば成功
 
-## Rasberry Pi Picoからシリアル通信にて送信する
+## Raspberry Pi Picoからシリアル通信にて送信する
 
-以下のプログラムを実行した後、Thonnyを終了してください。※shellにデータを表示する際に、シリアル通信を行っているため、PCへのシリアル通信と競合してしまうのを防ぐためです。
+以下のプログラムを実行した後、`Thonny`を終了してください。※shellにデータを表示する際に、シリアル通信を行っているため、PCへのシリアル通信と競合してしまうのを防ぐためです。
 
 ```python
 # -*- coding: utf-8-*-
@@ -88,9 +88,11 @@ import ssd1306
 
 #picoのled(GPIO25を出力ピンに定義)
 led = machine.Pin(25, machine.Pin.OUT)
-#I2C通信の設定(16pinをsdaに, 17pinをscl)
-i2c = I2C(0, sda = Pin(16), scl = Pin(17), freq = 40000)
+#I2C通信の設定(16pinをsda, 17pinをscl)
+i2c = I2C(0, sda = Pin(16), scl = Pin(17))
+#bme280の初期設定
 bme = BME280(i2c = i2c)
+#ssd1306の初期設定
 oled = ssd1306.SSD1306_I2C(128, 64, i2c)
 
 '''
@@ -124,13 +126,13 @@ while True:
     
     led.value(1) #led点灯
     print(data)  #シリアル通信にてデータ送信
-    sleep(1)	 #1min待機
+    sleep(60)	 #1min待機
     led.value(0) #led消灯
 ```
 
-## Pythonにてデータを受信する
+## Pythonでデータを受信する
 
-pythonにて、Picoから送られたデータ（温度、湿度、気圧）を受信します。同時にファイル名（test.csv）に、' , 'カンマ区切りでデータを出力する。`Ctrl+C`キーを入力するとプログラムの実行を終了する。
+pythonで、Picoから送られたデータ（温度、湿度、気圧）を受信します。同時にファイル名（test.csv）に、` (,) `カンマ区切りでデータを出力する。`[Ctrl+C]`キーを入力するとプログラムの実行を終了します。
 
 - csvファイルの中身について
 
@@ -154,9 +156,9 @@ ser = serial.Serial('COM番号', 921600)
 
 try:
     while True:
-        #シリアル通信からデータを取得
+        ## 行終端'\r\n'までシリアル通信からデータを取得
         data = ser.readline()
-        sleep(1)
+        sleep(1)    #1sec待機
 
         #改行コードで分割
         data = data.split(b'\r\n')
@@ -169,6 +171,8 @@ try:
         #datetimeライブラリから現在の時刻を取得
         dt_now = datetime.datetime.now()
         #ファイル名(test.csv)を作成し、カンマ区切りで(現在時刻,温度,湿度,気圧)書き込む
+        #with構文はopen,read,closeを省略して表記
+        #'a'モードをファイルを作成し、追加で書き込む
         with open('test.csv', 'a') as f:
             f.write(dt_now.strftime('%Y/%m/%d %H:%M:%S') + "," + data[0]  + "," + data[1]  + "," + data[2] + "\n")
     
@@ -182,7 +186,7 @@ except KeyboardInterrupt:#キーを押して終了した時は何もしないで
 ser = serial.Serial('COM番号', 921600)
 ```
 
-## Pythonにてcsvデータをグラフ化する
+## Pythonでcsvデータをグラフ化する
 
 上記のプログラムで出力された`test.csc`ファイルを`Pandas`と`Matplotlib`ライブラリを用いて、グラフによる可視化を行います。
 
@@ -200,7 +204,7 @@ df = pd.read_csv('test.csv', names=("TimeStamp", "Temperature", "Pressure", "Hum
 #2x2=4つのグラフを作成する
 fig, axes = plt.subplots(2,2,tight_layout=True)
 
-
+#グラフそれぞれにx軸とy軸のデータ、色を指定し、プロットする
 df.plot(ax=axes[0,0], x='TimeStamp', y=["Temperature"], color="red")
 df.plot(ax=axes[0,1], x='TimeStamp', y=["Pressure"], color="blue")
 df.plot(ax=axes[1,0], x='TimeStamp', y=["Humidity"], color="green")
@@ -220,7 +224,7 @@ axes[0,0].set_ylim(0,40)
 axes[0,1].set_ylim(800, 1100)
 axes[1,0].set_ylim(0, 100)
 
-#グラフの表示
+#グラフの表示（jupyterだと不要）
 plt.show()
 ```
 以下のグラフが描画されれば、成功です。

@@ -30,21 +30,23 @@ Raspberry Pi財団が独自に開発したARM Cortex M0+デュアルコアのRP2
 
 ### ピン配置
 
-ピンレイアウトは下図の通りとなる。
+ピンレイアウトは下図の通りとなります。
 
 ![外観図](./image/img6.png)
 
 ### [Raspberry Pi Picoの環境構築](https://www.raspberrypi.com/documentation/microcontrollers/micropython.html)
 
-Rapberry Pi Pico用のUF2ファイルをダウンロードする。（Pico WはWi-Fiモジュール搭載用なので間違わないようにすること。※日本未発売R4.9.22現在）
+以下のアドレスからRapberry Pi Pico用のUF2ファイルをダウンロードします。（Pico WはWi-Fiモジュール搭載用なので間違わないようにします。※日本未発売R4.9.22現在）
 
-* BOOTSELボタンを押したまま、PicoをPCのUSB ポートに接続します。Picoが接続されたら、BOOTSELボタンを放します。
+* <https://www.raspberrypi.com/documentation/microcontrollers/micropython.html>
 
-* RPI-RP2と呼ばれるマスストレージデバイスとしてマウントされます。
+* `BOOTSELボタン`を押したまま、PicoをPCのUSB ポートに接続します。Picoが接続されたら、`BOOTSELボタン`を放します。
+
+* `RPI-RP2`と呼ばれるマスストレージデバイスとしてマウントされます。
 
 ![外観図](./image/img21.png)
 
-* MicroPython UF2ファイルをRPI-RP2ボリュームにドラッグ＆ドロップします。Picoが再起動します。
+* MicroPython UF2ファイルをRPI-RP2ボリュームに`ドラッグ＆ドロップ`します。Picoが再起動します。
 
 ### 配線
 
@@ -76,7 +78,7 @@ Raspberry Pi向けのPython開発環境Thonnyは、初心者向けの統合開�
 
 ### インタプリタの選択
 
-ツール＜オプション からインタプリタの設定画面を開く。
+ツール＜オプション からインタプリタの設定画面を開きます。
 
 - Which kind of interpreter...code?
     - MicroPython(Raspberry Pi Pico)
@@ -88,11 +90,11 @@ Raspberry Pi向けのPython開発環境Thonnyは、初心者向けの統合開�
 
 ## サンプルプログラム
 
-いつくかのサンプルプログラムを実行し、Picoと各種センサについて学習します。
+いくつかのサンプルプログラムを実行し、Picoと各種センサについて学習します。
 
 ### LEDの制御
 
-Raspberry Pi Picoに内臓されているLED（GPIO25pinに接続）を使用して、Lチカを行います。
+Raspberry Pi Picoに内蔵されているLED（`GPIO25pin`）を使用して、Lチカを行います。
 
 * ファイル名（pico_micropython1.py）
 ```python
@@ -109,14 +111,14 @@ led = machine.Pin(25, machine.Pin.OUT)
 #無限ループ
 while True:
     led.value(1) #led点灯
-    sleep(1)	 #1min待機
+    sleep(1)	 #1sec待機
     led.value(0) #led消灯
-    sleep(1)
+    sleep(1)     #isec待機
 ```
 
 ### ライブラリのインストール
 
-OLED及びAE-BME280をMicroPythonで開発する際に便利なライブラリがあるのでダウンロードする。
+`SSD1306`及び`AE-BME280`をMicroPythonで開発する際に便利なライブラリがあるのでダウンロードします。
 
 ツール＜パッケージを管理...、`ssd1306`で検索する。
 - micropython_ssd1306
@@ -125,6 +127,8 @@ OLED及びAE-BME280をMicroPythonで開発する際に便利なライブラリ�
 ツール＜パッケージを管理...、`bme280`で検索する。
 - micropython_bme280
     - `https://github.com/stlehmann/micropython-ssd1306`
+
+ライブラリがインストールされると以下のようにインストール項目に追加されます。
 
 ![外観図](./image/img22.png)
 
@@ -144,9 +148,10 @@ from time import sleep
 #ssd1306ライブラリをインポート
 import ssd1306
 
-#I2C通信の設定(16pinをsdaに, 17pinをscl)
-i2c = I2C(0, sda = Pin(16), scl = Pin(17), freq = 40000)
-#OLEDの初期設定
+#I2C通信の設定(16pinをsda, 17pinをscl）
+i2c = I2C(0, sda = Pin(16), scl = Pin(17))
+
+#OLEDの初期設定（解像度128x64, i2c通信を選択）
 oled = ssd1306.SSD1306_I2C(128, 64, i2c)
 
 oled.text("Rasp Pi Pico",0,0)  #x=0, y=0座標に文字を出力
@@ -172,8 +177,8 @@ from bme280 import BME280
 
 import math
 
-#I2C通信の設定(16pinをsdaに, 17pinをscl)
-i2c = I2C(0, sda = Pin(16), scl = Pin(17), freq = 40000)
+#I2C通信の設定(16pinをsda, 17pinをscl)
+i2c = I2C(0, sda = Pin(16), scl = Pin(17))
 #BME280の初期設定
 bme = BME280(i2c = i2c)
 
@@ -181,6 +186,7 @@ bme = BME280(i2c = i2c)
 bme280センサの計測を行う関数
 '''
 def sensor():
+    #温度・湿度・気圧データを取得し、それぞれに格納
     temp, press, humi = bme.read_compensated_data()
     #温度,湿度,気圧のデータを計算
     temp = float(temp / 100)
@@ -197,7 +203,7 @@ while True:
     data, temp, press, humi = sensor()
     
     print(data)  #シリアル通信にてデータ送信
-    sleep(1)	 #1min待機
+    sleep(60)	 #1min待機
 ```
 正しく接続ができていれば、以下のようなセンサデータがshell画面に1秒間隔で表示されます。
 
