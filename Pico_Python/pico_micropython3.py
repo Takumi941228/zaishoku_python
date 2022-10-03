@@ -35,4 +35,4 @@ while True:
     data, temp, press, humi = sensor()
     
     print(data)  #シリアル通信にてデータ送信
-    sleep(60)	 #1min待機
+    sleep(1)	 #1sec待機

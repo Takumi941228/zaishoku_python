@@ -50,7 +50,7 @@ Windows PowerShellが画面にて以下のコマンドを打ちます。
 ```shell
  pip install --upgrade pip
 ```
-`Successfully uninstalled pip-21.2.4`とでれば成功
+`Successfully uninstalled pip-x.x.x`とでれば成功
 
 - Padansをインストール
 ```shell
@@ -69,7 +69,7 @@ Windows PowerShellが画面にて以下のコマンドを打ちます。
 ```shell
 pip install pyserial 
 ```
-`Successfully installed pyserial-3.5`とでれば成功
+`Successfully installed pyserial-x.x`とでれば成功
 
 ## Raspberry Pi Picoからシリアル通信にて送信する
 
@@ -130,11 +130,6 @@ while True:
     led.value(0) #led消灯
 ```
 
-powershell画面で、pythonコードを実行します。
-
-```shell
-python pico_python1.py
-```
 
 ## Pythonでデータを受信する
 
@@ -195,7 +190,7 @@ ser = serial.Serial('COM番号', 921600)
 powershell画面で、pythonコードを実行します。
 
 ```shell
-python pico_python2.py
+python pico_python1.py
 ```
 
 ## Pythonでcsvデータをグラフ化する
@@ -239,6 +234,13 @@ axes[1,0].set_ylim(0, 100)
 #グラフの表示（jupyterだと不要）
 plt.show()
 ```
+
+powershell画面で、pythonコードを実行します。
+
+```shell
+python pico_python2.py
+```
+
 以下のグラフが描画されれば、成功です。
 
 ![外観図](./image/Figure_1.png)
