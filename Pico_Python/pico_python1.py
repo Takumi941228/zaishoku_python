@@ -6,7 +6,7 @@ import csv
 import serial
 
 #シリアルポートを設定
-ser = serial.Serial('COM7', 921600)
+ser = serial.Serial('COM番号', 921600)
 
 try:
     while True:

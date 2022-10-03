@@ -43,7 +43,7 @@ VSCode上部のターミナルから新しいターミナルを開き、以下�
 
 Windows PowerShellが画面にて以下のコマンドを打ちます。
 
-`PS C:\Users\user\Documents\zaishoku_python>`のあとに以下のコマンドを打ちます。
+![外観図](./image/img24.png)
 
 - pipを最新版にアップデート
 
@@ -130,6 +130,12 @@ while True:
     led.value(0) #led消灯
 ```
 
+powershell画面で、pythonコードを実行します。
+
+```shell
+python pico_python1.py
+```
+
 ## Pythonでデータを受信する
 
 pythonで、Picoから送られたデータ（温度、湿度、気圧）を受信します。同時にファイル名（test.csv）に、` (,) `カンマ区切りでデータを出力する。`[Ctrl+C]`キーを入力するとプログラムの実行を終了します。
@@ -184,6 +190,12 @@ except KeyboardInterrupt:#キーを押して終了した時は何もしないで
 
 ```python
 ser = serial.Serial('COM番号', 921600)
+```
+
+powershell画面で、pythonコードを実行します。
+
+```shell
+python pico_python2.py
 ```
 
 ## Pythonでcsvデータをグラフ化する

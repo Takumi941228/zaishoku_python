@@ -10,9 +10,11 @@ import ssd1306
 
 #picoのled(GPIO25を出力ピンに定義)
 led = machine.Pin(25, machine.Pin.OUT)
-#I2C通信の設定(16pinをsdaに, 17pinをscl)
-i2c = I2C(0, sda = Pin(16), scl = Pin(17), freq = 40000)
+#I2C通信の設定(16pinをsda, 17pinをscl)
+i2c = I2C(0, sda = Pin(16), scl = Pin(17))
+#bme280の初期設定
 bme = BME280(i2c = i2c)
+#ssd1306の初期設定
 oled = ssd1306.SSD1306_I2C(128, 64, i2c)
 
 '''
@@ -46,6 +48,5 @@ while True:
     
     led.value(1) #led点灯
     print(data)  #シリアル通信にてデータ送信
-    sleep(1)	 #1min待機
+    sleep(60)	 #1min待機
     led.value(0) #led消灯
-
