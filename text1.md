@@ -31,7 +31,7 @@ WindowsのスタートメニューからAnaconda3の中のJupyter NoteBookをク
 
 ![外観図](./image/img3.png)
 
-ご自身のPC内のディレクトリから開きたいファイル（拡張子：`.ipynb`）をクリックします。画像は、今回使用するフォルダのコードを参照しています。
+ご自身のPC内のディレクトリから開きたいファイル（拡張子：`.ipynb`）をクリックします。画像は、今回使用するフォルダの構造を参照しています。`python_1.ipynb`を開いてみてください。
 
 フォルダの階層
 ```
@@ -47,11 +47,11 @@ zaishoku_python
 
 ![外観図](./image/img4.png)
 
-クリックと同時にファイルが`Running`状態となり、プログラムが実行できるようになります。
+ファイル名をクリックと同時にファイルが`Running`状態となり、ファイルが開かれ、プログラムが実行できるようになります。
 
 ### プログラムの実行
 
-Running状態のコードを`[▶Run]`をクリックすると、cellごとにプログラムを実行することができます。
+Running状態のコードを`[▶Run]`をクリックすると、cellごとにプログラムを実行することができます。`In[数値]`は、実行するプログラムのコードのcellになり、`Out[数値]`は、`In[]`のcellに対しての実行結果になります。また、クリックごとに下のcellに移動し、それぞれの`In[]`が`Out[]`のcellとして実行されていきます。プログラムに問題があれば、`Out[]`のcellにエラーが書かれます。
 
 ![外観図](./image/img5.png)
 
@@ -61,14 +61,40 @@ NeWをクリックし、インタプリタを`[Python3(ipykernel)]`を選択し�
 
 ![外観図](./image/img17.png)
 
-以下のコードを画像のように入力してください。
+以下のコードを画像のように入力して、コードを実行してください。
 
 ```python
-print('Hello Python')
-10 + 10
+In[] : print('Hello Python')
+```
+```python
+In[] : 10 + 10
 ```
 
 ![外観図](./image/img18.png)
+
+以下は、コードに間違いがあるときのエラーを表示させたものです。初心者の方がよくミスをするエラーです。
+
+```python
+In[] : print(Hello Python)
+```
+```python
+In[] : 10 + a
+```
+![外観図](./image/img27.png)
+
+* Pytohnの構文エラー
+    * pythonの文法が間違っています。
+
+```shell
+SyntaxError:   invalid syntax
+```
+
+* 定義されていないエラー
+    * 'a'という名前が定義されていません。
+
+```shell
+NameError:  name 'a' is not defined
+```
 
 入力および実行が終わったら名前を付けて保存します。`Untitled`をクリックし、任意の名前を入力してください。
 
@@ -76,6 +102,6 @@ print('Hello Python')
 
 ### Jupyter NoteBookの終了
 
-上記タブのFileから[close and Halt]をクリックして、ターミナル画面上で`[ctrl+cキー]`を押すと、数秒後に終了します。
+上記タブのFileから[close and Halt]をクリックして、Webブラウザを終了し、ターミナル画面上で`[ctrl+cキー]`を押すと、数秒後に終了します。
 
 ![外観図](./image/img20.png)

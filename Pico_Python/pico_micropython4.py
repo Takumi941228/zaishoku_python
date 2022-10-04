@@ -26,7 +26,7 @@ def sensor():
     temp = float(temp / 100)
     press = float((press // 256) / 100)
     humi = float(humi / 1024)
-    ｓ#文字型に変換してlist型dataに格納
+    #文字型に変換してlist型dataに格納
     #humiを小数点以下第二位で四捨五入
     data = str(temp) + ',' + str(press) + ',' + str(round(humi, 2))
     #計測したデータを戻り値として返す

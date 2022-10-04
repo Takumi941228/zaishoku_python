@@ -92,6 +92,12 @@ Raspberry Pi向けのPython開発環境Thonnyは、初心者向けの統合開�
 
 いくつかのサンプルプログラムを実行し、Picoと各種センサについて学習します。
 
+タブから`ファイル`＞`ファイルを開く`
+* where are to open from?
+    * `このコンピュータ`を選択
+
+`C:\Users\user\Desktop\zaishoku_python\Pico_Python\pico_micropython1.py`を開きます。
+
 ### LEDの制御
 
 Raspberry Pi Picoに内蔵されているLED（`GPIO25pin`）を使用して、Lチカを行います。
@@ -115,6 +121,10 @@ while True:
     led.value(0) #led消灯
     sleep(1)     #isec待機
 ```
+
+プログラムの実行をするには、`緑色のアイコン`をクリックします。止めるときは、`STOP`のアイコンです。
+
+![外観図](./image/img28.png)
 
 ### ライブラリのインストール
 

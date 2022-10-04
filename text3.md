@@ -20,12 +20,26 @@ Visual Studio Code（VSCode）は、2015年にリリースされたMicrosoftが�
 
 ## 拡張機能のインストール
 
-VSCode内のプライマリサイドバーの拡張機能から`japanes`と`Python`と検索し、VSCodeの日本語化とPythonの開発に必要な拡張機能をインストールします。その他Pylanceなどの機能も一緒にインストールされる。
+VSCode内のプライマリサイドバーの拡張機能から`japanese`と`Python`と検索し、VSCodeの日本語化とPythonの開発に必要な拡張機能をインストールします。その他Pylanceなどの機能も一緒にインストールされる。
 
 ![外観図](./image/img15.png)
 ![外観図](./image/img11.png)
 
-インタプリタを右下の設定からPython 3.x.x 64-bit　`C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe`を選択します。※先にPythonファイルを開いてください。
+## インタプリタの選択
+
+VSCode内の上記タブから`ファイル`＞`フォルダを開く`
+
+* フォルダ名：`pico_python`を開いてください。
+
+その後、画像のように、pico_python1.pyをクリックしてください。
+
+* ファイル名: `pico_python1.py`を開いてください。
+
+![外観図](./image/img30.png)
+
+インタプリタを右下の設定からPython 3.x.x 64-bitを選択します。※先にPythonファイルを開いてください。
+* `C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe`
+
 
 ![外観図](./image/img16.png)
 
@@ -124,7 +138,7 @@ except KeyboardInterrupt:#キーを押して終了した時は何もしないで
 `COM番号`には自身のPicoが接続されたCOM番号を入れる。
 
 ```python
-ser = serial.Serial('COM番号', 921600)
+ser = serial.Serial('COM10', 921600)
 ```
 
 powershell画面で、pythonコードを実行します。
@@ -133,9 +147,21 @@ powershell画面で、pythonコードを実行します。
 python pico_python1.py
 ```
 
+以下のように新しいPythonファイルからのPythonコードを実行することができます。
+
+![外観図](./image/img29.png)
+
+成功すれば、以下のようにターミナル上に`['温度', '気圧', '湿度']`がシリアル通信で受信されて、表示されます。
+
+![外観図](./image/img25.png)
+
+なお、受信されたデータは、`test.csv`というファイル名のファイルが自動で生成されて、以下のように、データが書き込まれます。
+
+![外観図](./image/img26.png)
+
 ## Pythonでcsvデータをグラフ化する
 
-上記のプログラムで出力された`test.csv`ファイルを読み込んで`Pandas`と`Matplotlib`ライブラリを用いて、グラフによる可視化を行います。
+上記のプログラムで生成された`test.csv`ファイルを読み込んで`Pandas`と`Matplotlib`ライブラリを用いて、グラフによる可視化を行います。
 
 * ファイル名（pico_python2.py）
 
