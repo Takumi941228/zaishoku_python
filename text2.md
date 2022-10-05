@@ -167,8 +167,9 @@ oled = ssd1306.SSD1306_I2C(128, 64, i2c)
 oled.text("Rasp Pi Pico",0,0)  #x=0, y=0座標に文字を出力
 oled.text("Hello Python",0,20) #x=0, y=20座標に文字を出力
 
-oled.show()		#oledにデータを表示
+oled.show() #oledにデータを表示
 ```
+
 ### BME280センサデータの取得
 
 BME280センサをPicoにI2C接続を行いデータを取得する
@@ -213,8 +214,9 @@ while True:
     data, temp, press, humi = sensor()
     
     print(data)  #シリアル通信にてデータ送信
-    sleep(1)	 #1msec待機
+    sleep(1)     #1msec待機
 ```
+
 正しく接続ができていれば、以下のようなセンサデータがshell画面に1秒間隔で表示されます。
 
 ![外観図](./image/img9.png)
@@ -262,7 +264,7 @@ while True:
     #sensor関数を呼び出し、戻り値をdata,temp,press,humiに格納
     data, temp, press, humi = sensor()
     
-    oled.fill(0)	#oledの表示を削除
+    oled.fill(0)  #oledの表示を削除
     oled.text("Rasp Pi Pico",0,0)  
     oled.text("Temp:       'C",0,10)
     oled.text(str(temp),48,10)
@@ -270,10 +272,10 @@ while True:
     oled.text(str(press),48,20)
     oled.text("Humi:         %",0,30)
     oled.text(str(humi),48,30)
-    oled.show()		#oledにデータを表示
+    oled.show()   #oledにデータを表示
     
     led.value(1) #led点灯
     print(data)  #シリアル通信にてデータ送信
-    sleep(60)	 #1min待機
+    sleep(60)    #1min待機
     led.value(0) #led消灯
 ```

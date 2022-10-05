@@ -10,13 +10,13 @@ Visual Studio Code（VSCode）は、2015年にリリースされたMicrosoftが�
 
 以下のアドレスからPythonをダウンロードし、インストールします。
 
-*  <https://www.python.org/>
+* <https://www.python.org/>
 
 ## 環境構築の準備
 
 以下のアドレスからVSCodeをダウンロードし、インストールします。
 
-* https://code.visualstudio.com/download
+* <https://code.visualstudio.com/download>
 
 ## 拡張機能のインストール
 
@@ -49,9 +49,7 @@ VSCode内の上記タブから`ファイル`＞`フォルダを開く`
 
 ## ライブラリのインストール作業
 
-公式版のPythonには、今回使用する外部ライブラリである`Paddas`、`Matplotlib`及びRaspberry Pi Picoとシリアル通信でデータを受信するには、`Pyserial`ライブラリをインストールする必要があります。
-
-VSCode上部のターミナルから新しいターミナルを開き、以下のコマンドを実行してください。
+公式版のPythonには、今回使用する外部ライブラリである`Paddas`、`Matplotlib`及びRaspberry Pi Picoとシリアル通信でデータを受信するには、`Pyserial`ライブラリをインストールする必要があります。VSCode上部のターミナルから新しいターミナルを開き、以下のコマンドを実行してください。
 
 ![外観図](./image/img13.png)
 
@@ -107,7 +105,7 @@ import csv
 import serial
 
 #シリアルポートを設定
-ser = serial.Serial('COM番号', 921600)
+ser = serial.Serial('COMXX', 921600)
 
 try:
     while True:
@@ -135,7 +133,7 @@ except KeyboardInterrupt:#キーを押して終了した時は何もしないで
     pass
 ```
 
-`COM番号`には自身のPicoが接続されたCOM番号を入れる。
+`COMXX`には自身のPicoが接続されたCOM番号を入れる。
 
 ```python
 ser = serial.Serial('COM10', 921600)

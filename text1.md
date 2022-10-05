@@ -19,7 +19,7 @@ Jupyter NoteBookを利用するには、以下の２つがあります。今回�
 
 * <https://www.anaconda.com/products/distribution>
 
-## Jupyter NoteBookの使い方 
+## Jupyter NoteBookの使い方
 
 ### Jupyter NoteBookの起動
 
@@ -36,7 +36,7 @@ WindowsのスタートメニューからAnaconda3の中のJupyter NoteBookをク
 フォルダの階層
 ```
 zaishoku_python
-|---jyupter_cone
+|---jupyter_code
 |       |---Matplotlib
 |       |---Numpy
 |       |---Pandas
@@ -45,13 +45,14 @@ zaishoku_python
 |---pico_code
 ```
 
+ファイル名をクリックと同時にファイルが開かれ、プログラムが実行できるようになります。一度開いたファイルは緑色になり、`Running`状態となります。jupyter NoteBookを停止する際には、全て`Shutdown`状態にします。
+
 ![外観図](./image/img4.png)
 
-ファイル名をクリックと同時にファイルが`Running`状態となり、ファイルが開かれ、プログラムが実行できるようになります。
 
 ### プログラムの実行
 
-Running状態のコードを`[▶Run]`をクリックすると、cellごとにプログラムを実行することができます。`In[数値]`は、実行するプログラムのコードのcellになり、`Out[数値]`は、`In[]`のcellに対しての実行結果になります。また、クリックごとに下のcellに移動し、それぞれの`In[]`が`Out[]`のcellとして実行されていきます。プログラムに問題があれば、`Out[]`のcellにエラーが書かれます。
+コードの上にある`[▶Run]`をクリックすると、cellごとにプログラムを実行することができます。`In[数値]`は、実行するプログラムのコードのcellになり、`Out[数値]`は、`In[]`のcellに対しての実行結果になります。また、クリックごとに下のcellに移動し、それぞれの`In[]`が`Out[]`のcellとして実行されていきます。プログラムに問題があれば、`Out[]`のcellにエラーが書かれます。
 
 ![外観図](./image/img5.png)
 
@@ -102,6 +103,6 @@ NameError:  name 'a' is not defined
 
 ### Jupyter NoteBookの終了
 
-上記タブのFileから[close and Halt]をクリックして、Webブラウザを終了し、ターミナル画面上で`[ctrl+cキー]`を押すと、数秒後に終了します。
+上記タブのFileから[close and Halt]をクリックして、Webブラウザを終了し、ターミナル画面上で`[ctrl+cキー]`を押すと、数秒後に終了します。`Xボタン`で消していただいても構いません。
 
 ![外観図](./image/img20.png)
