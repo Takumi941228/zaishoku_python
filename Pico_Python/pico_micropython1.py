@@ -1,8 +1,8 @@
 # pico_micropython1.py
 # -*- coding: utf-8-*-
-#pico用ライブラリをインポート
+#pico用machineライブラリのPinをインポート
 from machine import Pin
-#timeライブラリをインポート
+#timeライブラリのsleepをインポート
 from time import sleep
 
 #picoのled(GPIO25を出力ピンに定義)
@@ -13,4 +13,4 @@ while True:
     led.value(1) #led点灯
     sleep(1)	 #1sec待機
     led.value(0) #led消灯
-    sleep(1)     #isec待機
+    sleep(1)     #1sec待機

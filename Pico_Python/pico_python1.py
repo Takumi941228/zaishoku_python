@@ -1,18 +1,18 @@
 # coding: utf-8
-
+#各種ライブラリをインポート
 from time import sleep
 import datetime
 import csv
 import serial
 
-#シリアルポートを設定
+#シリアルポートを設定(XXにはPicoのCOM番号, 通信速度:921600bps)
 ser = serial.Serial('COMXX', 921600)
 
 try:
     while True:
-        #シリアル通信からデータを取得
+        #シリアル通信からデータを改行コード¥nまで取得
         data = ser.readline()
-        sleep(1)
+        sleep(1) #1sec待機
 
         #改行コードで分割
         data = data.split(b'\r\n')
@@ -20,6 +20,7 @@ try:
         data = data[0].decode()
         #カンマで分割し、list型dataに格納
         data = data.split(',')
+        #データの確認
         print(data)
         
         #datetimeライブラリから現在の時刻を取得

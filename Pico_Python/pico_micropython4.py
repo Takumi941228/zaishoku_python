@@ -1,9 +1,9 @@
 # -*- coding: utf-8-*-
-#pico用ライブラリをインポート
+#pico用ライブラリPinとI2Cをインポート
 from machine import Pin, I2C
-#timeライブラリをインポート
+#timeライブラリsleepをインポート
 from time import sleep
-#bme280ライブラリをインポート
+#bme280ライブラリBME280をインポート
 from bme280 import BME280
 #ssd1306ライブラリをインポート
 import ssd1306
@@ -21,12 +21,13 @@ oled = ssd1306.SSD1306_I2C(128, 64, i2c)
 bme280センサの計測を行う関数
 '''
 def sensor():
+    #センサデータを取得
     temp, press, humi = bme.read_compensated_data()
     #温度,湿度,気圧のデータを計算
     temp = float(temp / 100)
     press = float((press // 256) / 100)
     humi = float(humi / 1024)
-    #文字型に変換してlist型dataに格納
+    #文字型に変換してdataに格納
     #humiを小数点以下第二位で四捨五入
     data = str(temp) + ',' + str(press) + ',' + str(round(humi, 2))
     #計測したデータを戻り値として返す
@@ -36,6 +37,7 @@ while True:
     #sensor関数を呼び出し、戻り値をdata,temp,press,humiに格納
     data, temp, press, humi = sensor()
     
+    #oledにセンサデータを表示
     oled.fill(0)	#oledの表示を削除
     oled.text("Rasp Pi Pico",0,0)  
     oled.text("Temp:       'C",0,10)
